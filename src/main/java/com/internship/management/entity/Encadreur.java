@@ -29,10 +29,10 @@ public class Encadreur {
 
     private String specialization;
 
-    @OneToMany(mappedBy = "encadreur", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "encadreur")
     private List<Intern> interns;
 
-    @OneToMany(mappedBy = "encadreur", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "encadreur")
     private List<Project> projects;
 
     @CreationTimestamp

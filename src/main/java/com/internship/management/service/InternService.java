@@ -31,8 +31,8 @@ public class InternService {
 
         User user = User.builder()
                 .email(request.getEmail())
-                .prenom(request.getFirstName())
-                .nom(request.getLastName())
+                .nom(request.getFirstName())
+                .prenom(request.getLastName())
                 .phone(request.getPhone())
                 .role(User.Role.STAGIAIRE)
                 .accountStatus(User.AccountStatus.PENDING)
@@ -120,10 +120,10 @@ public class InternService {
         }
 
         if (request.getFirstName() != null) {
-            user.setNom(request.getFirstName());
+            user.setPrenom(request.getFirstName());
         }
         if (request.getLastName() != null) {
-            user.setPrenom(request.getLastName());
+            user.setNom(request.getLastName());
         }
         if (request.getPhone() != null) {
             user.setPhone(request.getPhone());
@@ -141,8 +141,7 @@ public class InternService {
             intern.setSchool(request.getSchool());
         }
         if (request.getDepartment() != null) {
-            user.setDepartment(request.getDepartment());
-            userRepository.save(user);
+            intern.setDepartment(request.getDepartment());
         }
         if (request.getStartDate() != null) {
             intern.setStartDate(request.getStartDate());

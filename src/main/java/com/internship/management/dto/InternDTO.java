@@ -34,9 +34,10 @@ public class InternDTO {
     public static InternDTO fromEntity(Intern intern) {
         return InternDTO.builder()
                 .id(intern.getId())
+                .userId(intern.getUser().getId())
                 .email(intern.getUser().getEmail())
-                .firstName(intern.getUser().getPrenom())
-                .lastName(intern.getUser().getNom())
+                .firstName(intern.getUser().getNom())
+                .lastName(intern.getUser().getPrenom())
                 .school(intern.getSchool())
                 .department(intern.getDepartment())
                 .startDate(intern.getStartDate())
@@ -47,8 +48,8 @@ public class InternDTO {
                 .notes(intern.getNotes())
                 .encadreurId(intern.getEncadreur() != null ? intern.getEncadreur().getId() : null)
                 .encadreurName(intern.getEncadreur() != null ?
-                    intern.getEncadreur().getUser().getPrenom() + " " +
-                    intern.getEncadreur().getUser().getNom() : null)
+                    intern.getEncadreur().getUser().getNom() + " " +
+                    intern.getEncadreur().getUser().getPrenom() : null)
                 .projectId(intern.getProject() != null ? intern.getProject().getId() : null)
                 .projectTitle(intern.getProject() != null ? intern.getProject().getTitle() : null)
                 .build();
