@@ -42,7 +42,6 @@ public class InternService {
         Encadreur encadreur = null;
         if (request.getEncadreurId() != null) {
             encadreur = encadreurRepository.findById(request.getEncadreurId())
-                    .or(() -> encadreurRepository.findByUserId(request.getEncadreurId()))
                     .orElseThrow(() -> new RuntimeException("ENCADREUR_NOT_FOUND"));
         }
 
@@ -134,7 +133,6 @@ public class InternService {
 
         if (request.getEncadreurId() != null) {
             Encadreur encadreur = encadreurRepository.findById(request.getEncadreurId())
-                    .or(() -> encadreurRepository.findByUserId(request.getEncadreurId()))
                     .orElseThrow(() -> new RuntimeException("ENCADREUR_NOT_FOUND"));
             intern.setEncadreur(encadreur);
         }
